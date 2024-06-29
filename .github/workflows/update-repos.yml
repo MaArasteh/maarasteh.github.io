@@ -24,7 +24,7 @@ jobs:
       - name: Fetch GitHub Repositories
         run: |
           GITHUB_TOKEN='${{ secrets.PAT }}'
-          USERNAME='yourusername'
+          USERNAME='MaArasteh'
           REPOS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/users/$USERNAME/repos?per_page=5" | jq -r '.[].html_url')
 
           # Create a list of repo links in HTML format
@@ -42,4 +42,4 @@ jobs:
           git config --global user.email 'actions@users.noreply.github.com'
           git add index.html
           git commit -m "Update GitHub repositories"
-          git push https://github.com/${{ secrets.PAT }}@github.com/yourusername/yourrepository.git HEAD:main
+          git push https://github.com/${{ secrets.PAT }}@github.com/MaArasteh/maarasteh.github.io.git HEAD:main
