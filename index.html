@@ -1,29 +1,116 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Mani Arasteh</title>
+    <title>Mani Arasteh's Personal Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77abff 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: right;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header #branding img {
+            float: left;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+        section {
+            padding: 20px 0;
+            border-bottom: #77abff 3px solid;
+        }
+        .dark {
+            padding: 15px;
+            background: #333;
+            color: #fff;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #fff;
+            background-color: #333;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="profile-icon">
-        <img src="https://avatars.githubusercontent.com/u/170086044?v=4" alt="My profile">
-    </div>
-    <div class="header1">
-        <h1>Mani Arasteh</h1>
-    </div>
-    <div class="contents-div">
-        <ul class="contents">
-            <li class="projects-href">
-                <a href="">Projects</a>
-            </li>
-        </ul>
-    </div>
-    <h4>Welcome to Mani Arasteh site</h4>
-    <p>Projects in one place</p>
-    <div id="repository-list" class="repository-list"></div>
-    <script src="script.js"></script>
-    <h5>GitHub Projects</h5>
-    <div class="repos"></div>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <img src="https://www.gravatar.com/avatar/bd808e2f51f2f5ede45f698636703b4e?s=100" alt="Profile Picture">
+                <h1>Mani Arasteh</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#interests">Key Interests</a></li>
+                    <li><a href="#github">My GitHub Repository</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Hello! I am Mani Arasteh. I like programming. </p>
+        </div>
+    </section>
+
+    <section id="interests" class="dark">
+        <div class="container">
+            <h2>Key Interests</h2>
+            <p>Programming is my primary interest. I enjoy coding, solving complex problems, and continually learning new programming languages and frameworks.</p>
+        </div>
+    </section>
+
+    <section id="github">
+        <div class="container">
+            <h2>My GitHub Repository</h2>
+            <p>Check out my GitHub repositories to see some of the projects I've been working on:</p>
+            <ul id="repo-list">
+                <!--REPLACE_WITH_REPOS-->
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>Mani Arasteh &copy; 2024</p>
+    </footer>
 </body>
 </html>
