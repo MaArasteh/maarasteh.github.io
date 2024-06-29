@@ -2,7 +2,8 @@ name: Update GitHub Repositories
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 */6 * * *'  # Runs every 6 hours
+  workflow_dispatch:       # Allows manual triggering
 
 jobs:
   update-repos:
@@ -22,12 +23,18 @@ jobs:
 
       - name: Fetch GitHub Repositories
         run: |
-          GITHUB_TOKEN='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'
-          USERNAME='MaArasteh'
+          GITHUB_TOKEN='${{ secrets.GITHUB_TOKEN }}'
+          USERNAME='yourusername'
           REPOS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/users/$USERNAME/repos?per_page=5" | jq -r '.[].html_url')
 
+          # Create a list of repo links in HTML format
+          REPO_LIST=""
+          for REPO in $REPOS; do
+            REPO_LIST="${REPO_LIST}<li><a href=\"$REPO\">$REPO</a></li>"
+          done
+
           # Update index.html with fetched repositories
-          sed -i "s|<!--REPLACE_WITH_REPOS-->|$(echo "$REPOS" | sed 's/&/\\\&/g')|g" index.html
+          sed -i "s|<!--REPLACE_WITH_REPOS-->|$REPO_LIST|g" index.html
 
       - name: Commit changes
         run: |
